@@ -1,0 +1,110 @@
+{
+   "name":"custom.remote.python.random",
+   "version":"1.001",
+   "type":"python",
+   "requiredAgentVersion": "1.101.0",
+   "entity":"CUSTOM_DEVICE",
+   "processTypeNames":["PYTHON"],
+   "technologies": ["RANDOM"],
+   "favicon": "https://assets.dynatrace.com/global/icons/infographic_rack.png",
+   "source":{
+      "package":"custom_random_plugin_remote",
+      "className":"CustomRandomPluginRemote",
+      "activation":"Remote"
+   },
+   "metrics":[
+      {
+         "entity": "CUSTOM_DEVICE",
+         "timeseries":{
+            "key":"metric1",
+            "unit":"Percent",
+            "displayname":"Metric 1 Percent"
+         }
+      },
+      {
+         "entity": "CUSTOM_DEVICE",
+         "timeseries":{
+            "key":"metric2",
+            "unit":"Byte",
+            "displayname":"Metric 2 Byte",
+            "dimensions": ["Dimension"]
+         }
+      },
+      {
+         "entity": "CUSTOM_DEVICE",
+         "timeseries":{
+            "key":"metric3",
+            "unit":"Count",
+            "displayname":"Metric 3 Count"
+         }
+      }
+   ],
+   "ui": {
+      "keymetrics" : [
+         {
+            "key": "metric1",
+            "displayname": "Metric 1"
+         },
+            {
+            "key": "metric2",
+            "displayname": "Metric 2"
+         }
+      ],
+      "keycharts": [
+         {
+            "group": "Random",
+            "title": "First Metric",
+            "series": [
+               {
+                  "key": "metric1",
+                  "displayname": "Metric 1"                  
+               }
+            ]
+         },
+         {
+            "group": "Random",
+            "title": "Second Metric",
+            "series": [
+               {
+                  "key": "metric2",
+                  "displayname": "Metric 2",
+                  "mergeaggregation": "AVG"
+               }
+            ]
+         },
+         {
+            "group": "Random",
+            "title": "Third Metric",
+            "series": [
+               {
+                  "key": "metric3",
+                  "displayname": "Metric 3",
+                  "seriestype": "line"
+               }
+            ]
+         }
+      ]
+   },
+   "properties": [
+      {
+         "key": "group",
+         "type": "String"
+      },
+      {
+         "key": "name",
+         "type": "String"
+      },
+      {
+         "key": "custom_property",
+         "type": "String"
+      }
+   ],
+   "configUI" :{
+      "displayName": "Random",
+      "properties" : [
+         { "key": "name", "displayName": "Name of the device", "displayOrder": 1, "displayHint": "My Device" },
+         { "key": "group", "displayName": "Name of the group", "displayOrder": 2, "displayHint": "My Group" },
+         { "key": "custom_property", "displayName": "Add a custom property", "displayOrder": 3, "displayHint": "My Property" }
+      ]
+   }
+}
