@@ -16,9 +16,13 @@ class CustomRandomPluginRemote(RemoteBasePlugin):
         name = config['name']
         custom_property = config['custom_property']
 
+        # ***************
+        # CAN VALIDATE CONFIG/AUTH AND RAISE EXCEPTIONS
+        # ***************
         if not name:
             raise ConfigException('Need a device name')
         if not group:
+            # e.g. test device connection
             raise AuthException('Need a device group')
 
         # ***************
@@ -39,7 +43,7 @@ class CustomRandomPluginRemote(RemoteBasePlugin):
             }
             metric2.append(dim)
 
-        metric3 = random.randint(0,1001)P
+        metric3 = random.randint(0,1001)
 
 
         # ***************
